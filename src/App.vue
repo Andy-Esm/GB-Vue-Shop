@@ -14,7 +14,7 @@ export default {
     }
   },
   methods: {
-    filter(value) {
+    filter() {
       const regexp = new RegExp(this.userSearch, 'i');
       this.filtered = this.products.filter(el => regexp.test(el.product_name));
     },
@@ -31,8 +31,8 @@ export default {
         if(data.result === 1){
           let find = this.cartItems.find(el => el.id_product === item.id_product)
           if(find){
-         find.quantity++
-        }else {
+            find.quantity++
+          }else {
             let prod = Object.assign({quantity: 1}, item);
             this.cartItems.push(prod)
           }
